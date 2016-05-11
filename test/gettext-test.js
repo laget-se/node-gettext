@@ -20,26 +20,6 @@ describe('Gettext', function() {
 
     describe('#addTextdomain', function() {
 
-        it('Should add from a mo file', function() {
-            var gt = new Gettext();
-            var moFile = fs.readFileSync(__dirname + '/fixtures/latin13.mo');
-
-            gt.addTextdomain('et-EE', moFile);
-
-            expect(gt.domains.et_EE).to.exist;
-            expect(gt.domains.et_EE.charset).to.equal('iso-8859-13');
-        });
-
-        it('Should add from a po file', function() {
-            var gt = new Gettext();
-            var poFile = fs.readFileSync(__dirname + '/fixtures/latin13.po');
-
-            gt.addTextdomain('et-EE', poFile);
-
-            expect(gt.domains.et_EE).to.exist;
-            expect(gt.domains.et_EE.charset).to.equal('iso-8859-13');
-        });
-
         it('Should add from a json file', function() {
             var gt = new Gettext();
             var jsonFile = JSON.parse(fs.readFileSync(__dirname + '/fixtures/latin13.json'));
@@ -55,7 +35,7 @@ describe('Gettext', function() {
     describe('#textdomain', function() {
         it('should set default domain', function() {
             var gt = new Gettext();
-            var moFile = fs.readFileSync(__dirname + '/fixtures/latin13.mo');
+            var moFile = JSON.parse(fs.readFileSync(__dirname + '/fixtures/latin13.json'));
 
             expect(gt.textdomain()).to.be.false;
             gt.addTextdomain('et-EE', moFile);
@@ -66,7 +46,7 @@ describe('Gettext', function() {
 
         it('should change default domain', function() {
             var gt = new Gettext();
-            var moFile = fs.readFileSync(__dirname + '/fixtures/latin13.mo');
+            var moFile = JSON.parse(fs.readFileSync(__dirname + '/fixtures/latin13.json'));
 
             expect(gt.textdomain()).to.be.false;
             gt.addTextdomain('et-EE', moFile);
@@ -83,7 +63,7 @@ describe('Gettext', function() {
 
         beforeEach(function() {
             gt = new Gettext();
-            var poFile = fs.readFileSync(__dirname + '/fixtures/latin13.po');
+            var poFile = JSON.parse(fs.readFileSync(__dirname + '/fixtures/latin13.json'));
             gt.addTextdomain('et-EE', poFile);
         });
 
