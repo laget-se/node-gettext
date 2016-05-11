@@ -1,18 +1,18 @@
 {
-  "name": "node-gettext",
-  "description": "Gettext client for Node.js to use .mo files for I18N",
+  "name": "node-gettext-json",
+  "description": "Gettext client for Node.js to use .json files for I18N",
   "version": "1.1.0",
-  "author": "Andris Reinman",
+  "author": ["Andris Reinman", "Emil Scherdin"],
   "maintainers": [
     {
       "name": "andris",
       "email": "andris@node.ee"
     }
   ],
-  "homepage": "http://github.com/andris9/node-gettext",
+  "homepage": "https://github.com/laget-se/node-gettext-json",
   "repository": {
     "type": "git",
-    "url": "http://github.com/andris9/node-gettext.git"
+    "url": "http://github.com/laget-se/node-gettext-json.git"
   },
   "scripts": {
     "test": "grunt"
@@ -21,12 +21,9 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "http://github.com/andris9/node-gettext/blob/master/LICENSE"
+      "url": "http://github.com/laget-se/node-gettext-json/blob/master/LICENSE"
     }
   ],
-  "dependencies": {
-    "gettext-parser": "^1.1.2"
-  },
   "devDependencies": {
     "chai": "^3.5.0",
     "grunt": "^1.0.1",
@@ -41,7 +38,6 @@
   "keywords": [
     "i18n",
     "l10n",
-    "gettext",
-    "mo"
+    "gettext"
   ]
 }
