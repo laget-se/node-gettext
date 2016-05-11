@@ -29,8 +29,10 @@ Language data needs to be in the Buffer format - it can be either contents of a 
 
 Load from a *json* file
 
-    var messages = require("messages.json");
-    Object.keys(messages).forEach(lang => gt.addTextdomain(lang, messages[lang]));
+    var gt = new Gettext();
+    var jsonFile = JSON.parse(fs.readFileSync(__dirname + '/fixtures/latin13.json'));
+
+    gt.addTextdomain('et-EE', jsonFile);
 
 Plural rules are automatically detected from the language code
 
