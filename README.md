@@ -1,29 +1,21 @@
-# node-gettext
+# node-gettext-json
 
-**node-gettext** is a Node.JS module to use .MO and .PO files.
-
-**NB!** If you just want to parse or compile mo/po files, check out [gettext-parser](https://github.com/andris9/gettext-parser).
+**node-gettext-json** is a Node.JS module to use .json files.
 
 ## Features
 
-  * Load binary *MO* or source *PO* files
+  * Load *json* files
   * Supports contexts and plurals
-
-[![Build Status](https://secure.travis-ci.org/andris9/node-gettext.png)](http://travis-ci.org/andris9/node-gettext)
-
-## Support node-gettext development
-
-[![Donate to author](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DB26KWR2BQX5W)
 
 ## Installation
 
-    npm install node-gettext
+    npm install node-gettext-json
 
 ## Usage
 
 ### Create a new Gettext object
 
-    var Gettext = require("node-gettext");
+    var Gettext = require("node-gettext-json");
 
     var gt = new Gettext();
 
@@ -31,19 +23,14 @@
 
 *addTextdomain(domain, file)*
 
-Language data needs to be in the Buffer format - it can be either contents of a *MO* or *PO* file.
+Language data needs to be in the Buffer format - it can be either contents of a *json* file.
 
 *addTextdomain(domain[, fileContents])*
 
-Load from a *MO* file
+Load from a *json* file
 
-    var fileContents = fs.readFileSync("et.mo");
-    gt.addTextdomain("et", fileContents);
-
-or load from a *PO* file
-
-    var fileContents = fs.readFileSync("et.po");
-    gt.addTextdomain("et", fileContents);
+    var messages = require("messages.json");
+    Object.keys(messages).forEach(lang => gt.addTextdomain(lang, messages[lang]));
 
 Plural rules are automatically detected from the language code
 
@@ -121,8 +108,6 @@ Returns an object in the form of `{translator: "", extracted: "", reference: "",
 ## Advanced handling
 
 If you need the translation object for a domain, for example `et_EE`, you can access it from `gt.domains.et_EE`.
-
-If you want modify it and compile it to *mo* or *po*, checkout [gettext-parser](https://github.com/andris9/gettext-parser) module.
 
 ## License
 
