@@ -2,6 +2,8 @@
 
 **node-gettext-json** is a Node.JS module to use .json files.
 
+Fork of andris9 [node-gettext](https://github.com/andris9/node-gettext). But only supports json to be able to use it with React Native.
+
 ## Features
 
   * Load *json* files
